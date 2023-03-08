@@ -53,6 +53,7 @@ function generatePassword() {
     password += validChar.charAt(Math.floor(Math.random() * validChar.length));
   }
 
+  // show result
   window.alert("Your secure password is: " + password);
   return password;
 }

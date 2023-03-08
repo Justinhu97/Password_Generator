@@ -6,13 +6,12 @@ function generatePassword() {
   // check password length
   var passwordLength = window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)");
 
-  if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("Password length must be between 8 and 128 characters.");
-  }
-  while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)");
+  while (true) {
     if (passwordLength < 8 || passwordLength > 128) {
       window.alert("Password length must be between 8 and 128 characters.");
+      passwordLength = window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)");
+    } else {
+      break;
     }
   }
   
@@ -22,18 +21,17 @@ function generatePassword() {
   var num = window.confirm("Would you like to include numeric characters?");
   var special = window.confirm("Would you like to include special characters?");
 
-  if (!lcaseLetter && !ucaseLetter && !num && !special) {
-    window.alert("You must choose at least one character type to include in your password.");
-  }
-  while (!lcaseLetter && !ucaseLetter && !num && !special) {
-    lcaseLetter = window.confirm("Would you like to include lowercase letters?");
-    ucaseLetter = window.confirm("Would you like to include uppercase letters?");
-    num = window.confirm("Would you like to include numeric characters?");
-    special = window.confirm("Would you like to include special characters?");
+  while (true) {
     if (!lcaseLetter && !ucaseLetter && !num && !special) {
       window.alert("You must choose at least one character type to include in your password.");
+      lcaseLetter = window.confirm("Would you like to include lowercase letters?");
+      ucaseLetter = window.confirm("Would you like to include uppercase letters?");
+      num = window.confirm("Would you like to include numeric characters?");
+      special = window.confirm("Would you like to include special characters?");
+    } else {
+      break;
     }
-  }
+  } (!lcaseLetter && !ucaseLetter && !num && !special)
 
   // generate password
   if (lcaseLetter) {

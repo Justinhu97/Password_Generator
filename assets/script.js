@@ -4,11 +4,11 @@ function generatePassword() {
   var validChar = "";
 
   // check password length
-  var passwordLength = window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)");
+  var passwordLength = parseInt(window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)"));
 
   while (true) {
-    if (passwordLength < 8 || passwordLength > 128) {
-      window.alert("Password length must be between 8 and 128 characters.");
+    if ((passwordLength < 8 || passwordLength > 128) || isNaN (passwordLength)) {
+      window.alert("Invalid Input!");
       passwordLength = window.prompt("How many characters would you like to have in your password?(Input number between 8 and 128!)");
     } else {
       break;
